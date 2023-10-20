@@ -1,0 +1,63 @@
+import scrapy
+import os
+import json
+from bs4 import BeautifulSoup
+import html2markdown
+
+
+
+def parse_element(element):
+    if element.name is None:
+        return None
+
+    tag = element.name
+    children = [parse_element(child) for child in element.children if child.name]
+
+    # 获取元素的文本值
+    text = element.get_text(strip=True)
+
+    # 检查子元素中是否存在与父元素相同的文本值
+    if children and any(child["text"] == text for child in children if child["text"] is not None):
+        text = None
+
+    # 如果文本值为 None，并且没有子元素，那么不记录这个节点
+    if text is None and not children:
+        return None
+
+    return {
+        "tag": tag,
+        "text": text if text else None,
+        "children": children if children else None
+    }
+
+
+
+class ExampleSpider(scrapy.Spider):
+    name = "example"
+    allowed_domains = ['developer.wordpress.org']
+    start_urls = ['https://developer.wordpress.org/block-editor/']
+    use_selenium = True
+
+    def parse(self, response):
+        # 获取源代码
+        html_content = response.text
+
+        # 解析HTML并删除样式和脚本标签
+        soup = BeautifulSoup(html_content, "html.parser")
+        for tag in soup(["style", "script"]):
+            tag.decompose()
+
+        # 将DOM树转换为所需结构
+        parsed_structure = parse_element(soup)
+
+        # 将所需结构转换为JSON字符串
+        json_string = json.dumps(parsed_structure, ensure_ascii=False, indent=2)
+
+        if not os.path.exists("output"):
+            os.mkdir("output")
+
+        # 将Markdown内容保存为.md文件
+        with open('output/wordpress.json', 'w', encoding='utf-8') as f:
+            f.write(json_string)
+
+        yield {'wordpress': json_string}

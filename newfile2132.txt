@@ -1,0 +1,59 @@
+import logging
+import scrapy
+import os
+import json
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+
+class ExampleSpider(scrapy.Spider):
+    name = "example"
+    allowed_domains = ['developer.wordpress.org']
+    start_urls = ['https://developer.wordpress.org/block-editor/']
+    use_selenium = True
+    all_data = {"p": [], "links": []}
+    start_urls_prefix = 'https://developer.wordpress.org/block-editor/'
+
+    def parse(self, response):
+        # 解析当前页面并提取相关数据
+        extracted_data = self.parse_and_extract(response)
+
+        # 将提取到的数据合并到 all_data
+        self.all_data["p"].extend(extracted_data["p"])
+        self.all_data["links"].extend(extracted_data["links"])
+
+        # 寻找下一层子链接
+        for link in extracted_data["links"]:
+            url = link["url"]
+            if url.startswith(self.start_urls_prefix):
+                yield scrapy.Request(url, callback=self.parse)
+
+        # 如果输出目录不存在，则创建它
+        if not os.path.exists("output"):
+            os.mkdir("output")
+
+        # 将提取到的信息保存到本地JSON文件
+        with open('output/extracted_information.json', 'w', encoding='utf-8') as f:
+            json.dump(self.all_data, f, ensure_ascii=False, indent=2)
+            logging.info("数据已保存到 output/extracted_information.json 文件中")
+
+        yield {'extracted_information': json.dumps(self.all_data, ensure_ascii=False, indent=2)}
+
+    def parse_and_extract(self, response):
+        # 获取源代码
+        html_content = response.text
+
+        # 解析HTML并删除样式和脚本标签
+        soup = BeautifulSoup(html_content, "html.parser")
+
+        # 提取相关信息
+        extracted_data = self.extract_relevant_data(soup)
+
+        return extracted_data
+
+    def extract_relevant_data(self, soup):
+
+        extracted_data = {}
+        extracted_data["p"] = [p.text.strip() for p in soup.find_all("p")]
+        extracted_data["links"] = [{"text": link.text.strip(), "url": urljoin(self.start_urls_prefix, link["href"])} for link in soup.find_all("a")]
+
+        return extracted_data

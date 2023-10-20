@@ -1,0 +1,192 @@
+import logging
+import scrapy
+import os
+import json
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+from difflib import SequenceMatcher
+
+class ExampleSpider(scrapy.Spider):
+    name = "example"
+    allowed_domains = ['developer.wordpress.org']
+    start_urls = ['https://developer.wordpress.org/block-editor/']
+    use_selenium = True
+
+    def parse(self, response):
+        # 获取源代码
+        html_content = response.text
+
+        # 解析HTML并删除样式和脚本标签
+        soup = BeautifulSoup(html_content, "html.parser")
+
+        # 提取相关信息
+        extracted_data = self.extract_relevant_data(soup)
+
+        # 如果输出目录不存在，则创建它
+        if not os.path.exists("output"):
+            os.mkdir("output")
+
+        # 将提取到的信息保存到本地JSON文件
+        with open('output/extracted_information.json', 'w', encoding='utf-8') as f:
+            json.dump(extracted_data, f, ensure_ascii=False, indent=2)
+
+        yield {'extracted_information': json.dumps(extracted_data, ensure_ascii=False, indent=2)}
+
+    def extract_relevant_data(self, soup):
+
+        extracted_data = {}
+        extracted_data["p"] = [p.text.strip() for p in soup.find_all("p")]
+        
+        # extracted_data["head"] = self.process_head(soup.head)
+        # extracted_data["body"] = self.process_body(soup.body)
+
+        return extracted_data
+
+    def process_head(self, head):
+        head_data = {}
+        head_data["title"] = head.title.string
+        head_data["meta"] = [{"name": tag.get("name", None), "content": tag.get("content", None)} for tag in head.find_all("meta")]
+
+        return head_data
+
+    def process_body(self, body):
+        body_data = {}
+        body_data["header"] = self.process_header(body.header)
+        body_data["nav"] = self.process_nav(body.nav)
+        body_data["main"] = self.process_main(body.main)
+        body_data["aside"] = self.process_aside(body.aside)
+        body_data["footer"] = self.process_footer(body.footer)
+
+        return body_data
+
+    def process_header(self, header):
+        header_data = {}
+        if header:
+            header_data["logo"] = header.find("img")["src"] if header.find("img") else None
+            header_data["heading"] = header.find("h1").text if header.find("h1") else None
+            header_data["subheading"] = header.find("h2").text if header.find("h2") else None
+
+        return header_data
+
+    def process_nav(self, nav):
+        nav_data = {}
+        if nav:
+            nav_links = nav.find_all("a")
+
+            nav_data["links"] = [{"text": link.text.strip(), "url": link["href"]} for link in nav_links]
+
+        return nav_data
+
+    def process_main(self, main):
+        main_data = {}
+
+        if main:
+            main_data["text"] = [line.strip() for line in main.text.split('\n') if line.strip()]
+            main_data.update(self.process_content(main))
+
+        return main_data
+
+    def process_content(self, content):
+        content_data = {}
+
+        if content:
+            content_data["headings"] = [h.text.strip() for h in content.find_all(["h1", "h2", "h3", "h4", "h5", "h6"])]
+            # content_data["paragraphs"] = [p.text.strip() for p in content.find_all("p")]
+            content_data["blockquotes"] = [blockquote.text.strip() for blockquote in content.find_all("blockquote")]
+            content_data["preformatted"] = [pre.text.strip() for pre in content.find_all("pre")]
+            # content_data["unordered_lists"] = [[li.text.strip() for li in ul.find_all("li")] for ul in content.find_all("ul")]
+            # content_data["ordered_lists"] = [[li.text.strip() for li in ol.find_all("li")] for ol in content.find_all("ol")]
+            content_data["bold_text"] = [strong.text.strip() for strong in content.find_all(["strong", "b"])]
+            content_data["italic_text"] = [em.text.strip() for em in content.find_all(["em", "i"])]
+            content_data["images"] = [{"src": img["src"], "alt": img.get("alt", "")} for img in content.find_all("img")]
+            content_data["videos"] = [{"src": video["src"], "poster": video.get("poster", "")} for video in content.find_all("video")]
+            content_data["audio"] = [{"src": audio["src"]} for audio in content.find_all("audio")]
+            content_data["source"] = [{"src": source["src"], "type": source.get("type", "")} for source in content.find_all("source")]
+            content_data["figures"] = [{"img": {"src": img["src"], "alt": img.get("alt", "")}, "caption": figcaption.text.strip()} for figure in content.find_all("figure") for img in figure.find_all("img") for figcaption in figure.find_all("figcaption")]
+            content_data["links"] = [{"text": link.text.strip(), "url": link["href"]} for link in content.find_all("a")]
+            content_data["external_links"] = [{"rel": link.get("rel", ""), "href": link["href"]} for link in content.find_all("link")]
+            content_data["articles"] = [self.process_article(article) for article in content.find_all("article")]
+            content_data["sections"] = [self.process_section(section) for section in content.find_all("section")]
+            content_data["tables"] = self.process_tables(content)
+            content_data["forms"] = self.process_forms(content)
+            content_data["semantics"] = self.process_semantics(content)
+
+        return content_data
+
+    def process_forms(self, content):
+        forms_data = []
+
+        for form in content.find_all("form"):
+            form_data = {}
+            form_data["inputs"] = [{"type": inp.get("type", ""), "name": inp.get("name", ""), "value": inp.get("value", "")} for inp in form.find_all("input")]
+            form_data["textareas"] = [{"name": textarea.get("name", ""), "content": textarea.text.strip()} for textarea in form.find_all("textarea")]
+            form_data["selects"] = [{"name": select.get("name", ""), "options": [{"value": option.get("value", ""), "text": option.text.strip()} for option in select.find_all("option")]} for select in form.find_all("select")]
+            form_data["buttons"] = [{"type": btn.get("type", ""), "text": btn.text.strip()} for btn in form.find_all("button")]
+            form_data["labels"] = [{"for": label.get("for", ""), "text": label.text.strip()} for label in form.find_all("label")]
+
+            forms_data.append(form_data)
+
+        return forms_data
+
+    def process_semantics(self, content):
+        semantics_data = {}
+
+        semantics_data["times"] = [{"datetime": time.get("datetime", ""), "text": time.text.strip()} for time in content.find_all("time")]
+        semantics_data["addresses"] = [address.text.strip() for address in content.find_all("address")]
+        semantics_data["abbreviations"] = [{"abbr": abbr.text.strip(), "title": abbr.get("title", "")} for abbr in content.find_all("abbr")]
+
+        return semantics_data
+        
+    def process_tables(self, content):
+        tables_data = []
+
+        for table in content.find_all("table"):
+            table_data = {}
+            table_data["caption"] = table.caption.text.strip() if table.caption else None
+            table_data["headers"] = [th.text.strip() for th in table.find_all("th")]
+            table_data["rows"] = [[td.text.strip() for td in tr.find_all("td")] for tr in table.find_all("tr")]
+
+            tables_data.append(table_data)
+
+        return tables_data
+
+    def process_article(self, article):
+        article_data = {}
+        if article:
+            article_data["title"] = article.find("h1").text if article.find("h1") else None
+            article_data["subtitle"] = article.find("h2").text if article.find("h2") else None
+            article_data["date"] = article.find("time")["datetime"] if article.find("time") else None
+            article_data["author"] = article.find("span", class_="author").text if article.find("span", class_="author") else None
+
+        return article_data
+
+    def process_section(self, section):
+        section_data = {}
+
+        if section:
+            section_data["title"] = section.find("h1").text if section.find("h1") else None
+            section_data["subtitle"] = section.find("h2").text if section.find("h2") else None
+
+        return section_data
+
+    def process_aside(self, aside):
+        aside_data = {}
+
+        if aside:
+            aside_data["title"] = aside.find("h1").text if aside.find("h1") else None
+            aside_data["subtitle"] = aside.find("h2").text if aside.find("h2") else None
+            aside_data["content"] = aside.text.strip()
+
+        return aside_data
+
+    def process_footer(self, footer):
+        footer_data = {}
+        if footer:
+            footer_data["copyright"] = footer.find("p").text.strip() if footer.find("p") else None
+            footer_data["contact"] = footer.find("a")["href"] if footer.find("a") else None
+            footer_data["social_media"] = [{"text": link.text.strip(), "url": link["href"]} for link in footer.find_all("a", class_="social-media")]
+            footer_data["sitemap"] = [{"text": link.text.strip(), "url": link["href"]} for link in footer.find_all("a", class_="sitemap")]
+            footer_data["content"] = footer.text.strip()
+
+
+        return footer_data

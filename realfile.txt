@@ -1,0 +1,48 @@
+import logging
+import scrapy
+import os
+import json
+from bs4 import BeautifulSoup
+
+class ExampleSpider(scrapy.Spider):
+    name = "example"
+    allowed_domains = ['developer.wordpress.org']
+    start_urls = ['https://developer.wordpress.org/block-editor/']
+    use_selenium = True
+
+    def parse(self, response):
+        try:
+            # 获取源代码
+            html_content = response.text
+
+            # 解析HTML并删除样式和脚本标签
+            soup = BeautifulSoup(html_content, "html.parser")
+
+            # 提取相关信息
+            extracted_data = self.extract_relevant_data(soup)
+
+            # 如果输出目录不存在，则创建它
+            if not os.path.exists("output"):
+                os.mkdir("output")
+
+            # 将提取到的信息保存到本地JSON文件
+            with open('output/extracted_information.json', 'w', encoding='utf-8') as f:
+                json.dump(extracted_data, f, ensure_ascii=False, indent=2)
+                logging.info("数据已保存到 output/extracted_information.json 文件中")
+
+            yield {'extracted_information': json.dumps(extracted_data, ensure_ascii=False, indent=2)}
+
+        except Exception as e:
+            # 如果程序发生错误，则记录错误信息并将其写入文件
+            error_message = str(e)
+            logging.error(error_message)
+            with open('output/error_log.txt', 'w', encoding='utf-8') as f:
+                f.write(error_message)
+
+    def extract_relevant_data(self, soup):
+
+        extracted_data = {}
+        extracted_data["p"] = [p.text.strip() for p in soup.find_all("p")]
+        extracted_data["links"] = [{"text": link.text.strip(), "url": link["href"]} for link in soup.find_all("a")]
+
+        return extracted_data

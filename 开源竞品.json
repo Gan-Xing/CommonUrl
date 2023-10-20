@@ -1,0 +1,332 @@
+{
+	"EleutherAI": {
+		"GPT-J-6B": {
+			"Date": "2021/06",
+			"Links": "https://github.com/kingoflolz/mesh-transformer-jax",
+			"Desc": "GPT-J-6B是一个基于自回归模型的语言模型，与类似的GPT-3模型相比，GPT-J-6B在参数量上有着更大的优势，达到了6亿个左右的参数数量。GPT-J-6B的训练数据来自于英文维基百科和Common Crawl等数据集，同时还使用了对抗训练等技术来提高模型的鲁棒性和泛化能力。",
+			"Size": "0.6B",
+			"Lang": "Multi",
+			"Dev": {
+				"Databricks": {
+					"Dolly1.0": {
+						"Date": "2023/03",
+						"Links": "https://github.com/databrickslabs/dolly",
+						"Desc": "Dolly大语言模型是Databricks公司开源的一个基于GPT的自然语言处理模型，包括Dolly 1.0和Dolly 2.0等不同版本。其中，Dolly 2.0是最新的版本，于2023年4月发布。Dolly大语言模型采用了Databricks自主研发的其它技术，如instruction-following等。",
+						"Size": "12B",
+						"Lang": "EN"
+					}
+				}
+			}
+		},
+		"Pythia": {
+			"Date": "2023/04",
+			"Links": "https://github.com/EleutherAI/pythia",
+			"Desc": "Pythia Scaling Suite是一组为促进可解释性研究而开发的模型。它包含两组八个型号，尺寸分别为 70M、160M、410M、1B、1.4B、2.8B、6.9B 和 12B。对于每种尺寸，有两种模型：一种是在 Pile 上训练的，另一种是在对数据集进行全局去重后在 Pile 上训练的。所有 8 种模型尺寸都以完全相同的顺序在完全相同的数据上进行训练。我们还为每个模型提供 154 个中间检查点，作为分支托管在 Hugging Face 上。Pythia 模型套件旨在促进大型语言模型的科学研究，尤其是可解释性研究。尽管没有将下游性能作为设计目标，但我们发现这些模型的性能达到或超过了类似和相同尺寸模型的性能，例如 OPT 和 GPT-Neo 套件中的模型。",
+			"Size": "12B",
+			"Lang": "EN",
+			"Dev": {
+				"Databricks": {
+					"Dolly2.0": {
+						"Date": "2023/04",
+						"Links": "https://github.com/EleutherAI/gpt-neox",
+						"Desc": "Dolly大语言模型是Databricks公司开源的一个基于GPT的自然语言处理模型，包括Dolly 1.0和Dolly 2.0等不同版本。其中，Dolly 2.0是最新的版本，于2023年4月发布。Dolly大语言模型采用了Databricks自主研发的其它技术，如instruction-following等。",
+						"Size": "12B",
+						"Lang": "EN"
+					}
+				}
+			}
+		},
+		"GPT-NeoX-20B": {
+			"Date": "2022/04",
+			"Links": "https://github.com/EleutherAI/pythia",
+			"Desc": "GPT-NeoX是一个基础的自然语言处理模型，它采用了类似于GPT-3的3个阶段的预训练方法，具有多语言支持和强大的生成能力。 GPT-NeoX目前是由EleutherAI社区开发的一个开源框架，在GitHub上提供了开放的预训练模型，以及适用于各种自然语言处理应用的相关教程和示例。",
+			"Size": "20B",
+			"Lang": "Multi",
+			"Dev": {
+				"Together&&LAION&&Ontocord.ai.": {
+					"GPT-NeoXT-Chat-Base-20B": {
+						"Date": "2023/03",
+						"Links": "https://github.com/togethercomputer/OpenChatKit",
+						"Desc": "GPT-NeoXT-Chat-Base-20B-v0.16 基于 ElutherAI 的 GPT-NeoX 模型，并针对专注于对话式交互的数据进行了微调。我们将调整重点放在几个任务上，例如问答、分类、提取和摘要。我们使用 4300 万条高质量指令集对模型进行了微调。与 LAION 和 Ontocord.ai 合作，他们都帮助管理了模型所基于的数据集。",
+						"Size": "20B",
+						"GPU": "48G",
+						"Lang": "EN"
+					}
+				}
+			}
+		}
+	},
+	"Google": {
+		"T5": {
+			"Date": "2019/10",
+			"Links": "https://github.com/google-research/text-to-text-transfer-transformer",
+			"Desc": "T5 是谷歌提出了一个统一预训练模型和框架，模型采用了谷歌最原始的 Encoder-Decoder Transformer结构。T5将每个文本处理问题都看成“Text-to-Text”问题，即将文本作为输入，生成新的文本作为输出。通过这种方式可以将不同的 NLP 任务统一在一个模型框架之下，充分进行迁移学习。为了告知模型需要执行的任务类型，在输入的文本前添加任务特定的文本前缀 (task-specific prefifix ) 进行提示，这也就是最早的 Prompt。也就说可以用同样的模型，同样的损失函数，同样的训练过程，同样的解码过程来完成所有 NLP 任务。T5 本身主要是针对英文训练，谷歌还发布了支持 101 种语言的 T5 的多语言版本 mT5[2]。",
+			"Size": "13B",
+			"Lang": "EN",
+			"Dev": {}
+		}
+	},
+	"Hugging Face": {
+		"BLOOM": {
+			"Date": "2022/07",
+			"Links": "https://huggingface.co/bigscience/bloom",
+			"Desc": "BLOOM is an autoregressive Large Language Model (LLM), trained to continue text from a prompt on vast amounts of text data using industrial-scale computational resources. As such, it is able to output coherent text in 46 languages and 13 programming languages that is hardly distinguishable from text written by humans. BLOOM can also be instructed to perform text tasks it hasn't been explicitly trained for, by casting them as text generation tasks.",
+			"Size": "176B",
+			"Lang": "Multi",
+			"Dev": {
+				"Hugging Face": {
+					"BLOOMZ & mT0": {
+						"Date": "2022/11",
+						"Links": "https://huggingface.co/bigscience/bloomz",
+						"Desc": "上述 T0 和 FLAN 等指令微调模型证明了多任务提示微调 (MTF) 可以帮助大模型在 zero-shot 条件下泛化到新任务，并且对 MTF 的探索主要集中在英语数据和模型上。 Hugging Face 将 MTF 应用于预训练的多语言 BLOOM 和 mT5 模型系列，发布了称为 BLOOMZ 和 mT0 的指令微调变体。研究实验中发现在具有英语提示的英语任务上微调多语言大模型可以将任务泛化到仅出现在预训练中的非英语任务；使用英语提示对多语言任务进行微调进一步提高了英语和非英语任务的性能，实现各种最先进的 zero-shot 结果； 论文还研究了多语言任务的微调，这些任务使用从英语翻译的提示来匹配每个数据集的语言，实验发现翻译的提示可以提高相应语言的人工提示的性能。 实验还发现模型能够对它们从未见过的语言任务进行零样本泛化，推测这些模型正在学习与任务和语言无关的更高级别的能力。"
+					}
+				}
+			}
+		}
+	},
+	"Meta": {
+		"OPT": {
+			"Date": "2022/05",
+			"Links": "https://github.com/facebookresearch/metaseq",
+			"Desc": "由 Meta AI 研究人员发布的一系列大规模预训练语言模型，模型包括125M、350M、1.3B、2.7B、6.7B、13B、30B、66B、175B 9个不同的参数规模和版本，除了 175B 的版本需要填写申请获取外，其它规模版本的模型都完全开放下载，可以免费获得。OPT-175B 和 GPT-3 的性能相当，并且部署只需要损耗 GPT-3 1/7 的能量损耗。OPT 系列模型开源的目的是为促进学术研究和交流，因为绝大多数大语言模型训练成本高昂，导致大部分研究人员都无法负担大语言模型的训练或使用；同时，各大企业发布的大语言预训练模型由于商业目的也都无法完整访问模型权重，只能通过 API 调用获取结果，阻碍了学术的交流与研究。",
+			"Size": "125B-175B",
+			"Lang": "EN",
+			"Dev": {}
+		},
+		"LLAMA": {
+			"Date": "2023/02",
+			"Links": "https://github.com/facebookresearch/llama",
+			"Desc": "LLaMA 是 Meta AI 发布的包含 7B、13B、33B 和 65B 四种参数规模的基础语言模型集合，LLaMA-13B 仅以 1/10 规模的参数在多数的 benchmarks 上性能优于 GPT-3(175B)，LLaMA-65B 与业内最好的模型 Chinchilla-70B 和 PaLM-540B 比较也具有竞争力。这项工作重点关注使用比通常更多的 tokens 训练一系列语言模型，在不同的推理预算下实现最佳的性能，也就是说在相对较小的模型上使用大规模数据集训练并达到较好性能。Chinchilla 论文中推荐在 200B 的 tokens 上训练 10B 规模的模型，而 LLaMA 使用了 1.4T tokens 训练 7B的模型，增大 tokens 规模，模型的性能仍在持续上升。",
+			"Size": "7B-65B",
+			"Lang": "Multi",
+			"Dev": {
+				"StandFord": {
+					"Alpaca": {
+						"Date": "2023/03",
+						"Links": "https://github.com/tatsu-lab/stanford_alpaca",
+						"Desc": "Alpaca（羊驼）模型是斯坦福大学基于 Meta 开源的 LLaMA-7B 模型微调得到的指令遵循（instruction-following）的语言模型。在有学术预算限制情况下，训练高质量的指令遵循模型主要面临强大的预训练语言模型和高质量的指令遵循数据两个挑战，作者利用 OpenAI 的 text-davinci-003 模型以 self-instruct 方式生成 52K 的指令遵循样本数据，利用这些数据训练以有监督的方式训练 LLaMA-7B 得到 Alpaca 模型。在测试中，Alpaca 的很多行为表现都与 text-davinci-003 类似，且只有 7B 参数的轻量级模型 Alpaca 性能可与 GPT-3.5 这样的超大规模语言模型性能媲美。",
+						"Size": "7B",
+						"Lang": "Multi",
+						"Dev": {
+							"Alpaca-LoRA": {
+								"Date": "2023/03",
+								"Links": "https://github.com/tatsu-lab/stanford_alpaca",
+								"Desc": "使用 low-rank adaptation (LoRA) 重现 Alpaca 的结果，并且能够以一块消费级显卡，在几小时内完成 7B 模型的 fine-turning。",
+								"Size": "7B",
+								"Lang": "EN",
+								"Dev": {
+									"KoAlpaca": "https://github.com/Beomi/KoAlpaca",
+									"Japanese-Alpaca-LoRA": "https://github.com/masa3141/japanese-alpaca-lora"
+								}
+							},
+							"Chinese-Vicuna": {
+								"Date": "2023/03",
+								"Links": "https://github.com/Facico/Chinese-Vicuna",
+								"Desc": "一个中文低资源的llama+lora方案，结构参考alpaca",
+								"Size": "7B",
+								"Lang": "CH"
+							},
+							"Chinese-alpaca-lora": {
+								"Date": "2023/03",
+								"Links": "https://github.com/LC1332/Chinese-alpaca-lora",
+								"Desc": "骆驼:A Chinese finetuned instruction LLaMA. Developed by 陈启源 @ 华中师范大学 & 李鲁鲁 @ 商汤科技 & 冷子昂 @ 商汤科技",
+								"Size": "7B",
+								"Lang": "CH"
+							}
+						}
+					}
+				},
+				"Salesforce": {
+					"CodeGen": {
+						"Date": "2022/04",
+						"Links": "https://github.com/salesforce/CodeGen",
+						"Desc": "CodeGen是Salesforce的研究人员开发的一个模型，它可以把自然语言直接转换成代码。他们的提出的CodeGen模型是一个大型的语言模型，是一种会话式的语言模型。CodeGen使编程像说话一样简单，可以将英文描述转换为可用的Python代码—这将允许任何人编写代码，即使他们没有编程经验。",
+						"Size": "16B",
+						"Lang": "Multi",
+						"Dev": {
+							"Fudan University": {
+								"Moss": {
+									"Date": "2023/04",
+									"Links": "https://github.com/OpenLMLab/MOSS",
+									"Desc": "复旦大学开源工具增强会话语言模型",
+									"Size": "7B,13B",
+									"GPU": "12G",
+									"Lang": "CH"
+								}
+							}
+						}
+					}
+				},
+				"LM-SYS": {
+					"Vicuna": {
+						"Date": "2023/03",
+						"Links": "https://github.com/lm-sys/FastChat",
+						"Desc": "23年3.31日，受 Meta LLaMA 和 Stanford Alpaca 项目的启发，加州大学伯克利分校(UC Berkeley)等大学的研究者根据从 ShareGPT.com (ShareGPT是一个用户可以分享他们的 ChatGPT 对话的网站)收集的用户共享对话微调 LLaMA 推出了Vicuna-13B",
+						"Size": "7B,13B",
+						"GPU": "14G",
+						"Lang": "CH,EN",
+						"Dev": {
+							"King Abdullah University of Science and Technology": {
+								"MiniGPT-4": {
+									"Date": "2023/04",
+									"Links": "https://github.com/Vision-CAIR/MiniGPT-4",
+									"Desc": "MiniGPT-4是一个可以理解图片的大语言模型，是由开源的预训练模型Vicuna-13B与BLIP-2结合的新模型。MiniGPT-4是分两个阶段训练的。首先是使用500万个图像-文本数据训练，在4个A100上训练了10个小时左右，不过这个阶段的模型的生成能力受到了严重的影响，因此还有第二个阶段；第二个阶段是通过模型本身和ChatGPT一起创建高质量的图像文本对，这是一个小而高质量的数据集（共计3500个对）。然后在对话模板中使用这个数据集进行训练，显著提高了其生成可靠性和整体可用性；但是这个阶段的微调效率很高，一个A100在大约7分钟内就可以完成。",
+									"Size": "7B,13B",
+									"GPU": "12G",
+									"Lang": "CH,EN"
+								}
+							}
+						}
+					}
+				},
+				"LAION AI": {
+					"OpenAssistant-Pythia": {
+						"Date": "2023/04",
+						"Links": "https://github.com/LAION-AI/Open-Assistant",
+						"Desc": "这是Open-Assistant项目的第四次迭代英语监督微调(SFT)模型。它基于一个Pythia 12B模型，该模型在2023年3月25日之前通过https://open-assistant.io/人工反馈Web应用程序收集的助手对话人类演示进行了微调。",
+						"Size": "12B",
+						"GPU": "",
+						"Lang": "EN"
+					}
+				},
+				"Stability AI": {
+					"StableLM": {
+						"Date": "2023/04",
+						"Links": "https://github.com/Stability-AI/StableLM",
+						"Desc": "StableLM是StabilityAI开源的一个大语言模型。于2023年4月20日公布，目前属于开发中，只公布了部分版本模型训练结果。StabilityAI是著名的开源软件Stable Diffusion的开发者，该系列模型完全开源，但是做的是文本生成图像方向。而本次发布的StableLM是StabilityAI的第一个开源的大语言模型。该模型基于Pile数据训练，但是是一个新的Pile数据集，比原始的Pile数据集大3倍，包含约1.5万亿tokens，数据集目前没有公开，但是官方说后续在适当的时机会公布。模型训练的context长度是4096个。",
+						"Size": "175B",
+						"GPU": "",
+						"Lang": "EN"
+					}
+				},
+				"潞晨科技": {
+					"ColossalAI": {
+						"Date": "2023/03",
+						"Links": "https://github.com/hpcaitech/ColossalAI",
+						"Desc": "Colossal-AI作为ChatGPT的平替，开源了完整的RLHF流水线，包括，监督数据收集、监督微调、奖励模型训练和强化学习微调等。基于LLaMA预训练模型，并分享最实用的开源项目ColossalChat。ColossalChat只用了不到100亿参数就达到中英文双语能力，通过在大语言模型基础上的RLHF微调，实现了与ChatGPT和GPT-3.5类似的效果。",
+						"Size": "7B",
+						"GPU": "4G",
+						"Lang": "CH,EN"
+					}
+				},
+				"Nomic AI": {
+					"GPT4ALL": {
+						"Date": "2023/03",
+						"Links": "https://github.com/hpcaitech/ColossalAI",
+						"Desc": "GPT4All是基于LLaMA模型70亿参数微调而成。GPT4All 在GPT-3.5-Turbo 的800k 条数据上进行训练，包括文字问题、故事描述、多轮对话和代码。在答案生成方面，几乎与ChatGPT相似，但资源消耗方面更低。",
+						"Size": "7B",
+						"GPU": "14G",
+						"Lang": "EN"
+					}
+				},
+				"链家科技": {
+					"BELLE": {
+						"Date": "2023/03",
+						"Links": "https://github.com/LianjiaTech/BELLE",
+						"Desc": "开源中文对话大模型,结合中文语料通过Self Instruct方式微调BLOOMZ-7B或LLaMA",
+						"Size": "7B-65B",
+						"Lang": "Multi"
+					}
+				},
+				"Yiming Cui, Ziqing Yang, Xin Yao": {
+					"Chinese LLaMA": {
+						"Date": "2023/03",
+						"Links": "https://github.com/ymcui/Chinese-LLaMA-Alpaca",
+						"Desc": "Chinese LLaMA(也称中文LLaMA，有7B和13B两个版本，项目地址)，相当于在原版LLaMA的基础上扩充了中文词表并使用了中文数据进行二次预训练，进一步提升了中文基础语义理解能力，同时，在中文LLaMA的基础上，且用中文指令数据进行指令精调得Chinese-Alpaca(也称中文Alpaca，同样也有7B和13B两个版本)",
+						"Size": "7B-65B",
+						"Lang": "Multi"
+					}
+				}
+			}
+		}
+	},
+	"Tsinghua": {
+		"GLM-130B": {
+			"Date": "2022/08",
+			"Links": "https://github.com/facebookresearch/llama",
+			"Desc": "GLM-130B 是一个开放的双语（英汉）双向密集模型，具有 1300 亿个参数，使用通用语言模型（GLM）的算法进行预训练。它旨在支持单台A100（40G * 8）或V100（32G * 8）服务器上具有130B参数的推理任务。通过 INT4 量化，硬件要求可以进一步降低到具有 4 * RTX 3090（24G）的单个服务器，而性能几乎没有下降。截至 2022 年 7 月 3 日，GLM-130B 已经接受了超过 4000 亿个文本标记（中文和英文各 200B）的训练",
+			"Size": "130B",
+			"Lang": "EN,CN",
+			"Dev": {
+				"Tsinghua": {
+					"ChatGLM-6B": {
+						"Date": "2023/03",
+						"Links": "https://github.com/THUDM/ChatGLM-6B",
+						"Desc": "62 亿参数的 ChatGLM-6B，结合模型量化技术，用户可以在消费级的显卡上进行本地部署（INT4 量化级别下最低只需 6GB 显存），虽然规模不及千亿模型，但大大降低了用户部署的门槛，并且已经能生成相当符合人类偏好的回答",
+						"Size": "6B",
+						"GPU": "6G",
+						"Lang": "EN,CN"
+					}
+				}
+			}
+		}
+	},
+	"AIChatBot": {
+		"OpenChatKit": [
+			"https://github.com/togethercomputer/OpenChatKit",
+			"A toolkit similar to ChatGPT, based on EleutherAI's GPT-NeoX-20B, containing a large model with 20 billion parameters that has been fine-tuned on 43 million prompts."
+		],
+		"Jasper Chat": [
+			"https://www.jasper.ai/chat",
+			"A feature in the Jasper AI ecosystem, unlike ChatGPT, it is a paid service."
+		],
+		"Character ai": [
+			"https://beta.character.ai/",
+			"Unlike ChatGPT, it categorizes the chatbots into various subfields. It allows people to participate in the creation process through a platform instead of solely relying on self-creation and model training."
+		],
+		"Bard": [
+			"https://blog.google/technology/ai/bard-google-ai-search-updates/",
+			"Bard is Google's new AI chatbot service that uses LaMDA, a language model that can generate natural and informative responses. Bard can help users with creative tasks, explaining complex topics, and learning new things. Bard is Google's answer to ChatGPT, Microsoft's popular AI chatbot."
+		],
+		"YouChat": [
+			"https://you.com/search?q=who+are+you&tbm=youchat&cfr=chat",
+			"YouChat is a chatbot from You.com, founded by language and artificial intelligence expert Richard Socher, a GPT-3-based text generator for writing emails and other documents. In contrast to ChatGPT, YouChat's replies are cited, which in turn helps users track the source of each message."
+		],
+		"Perplexity AI": [
+			"https://www.perplexity.ai/",
+			"AI, which at its core combines a large-scale language model with a search engine to perform Q&A, providing users with the answers they need in the form of a continuous dialogue. Compared to ChatGPT, Perplexity AI is able to provide sources of information , but the fluency and completeness of its answers is slightly less than ChatGPT."
+		],
+		"MOSS": [
+			"https://moss.fastnlp.top/",
+			"Can perform a series of tasks such as dialogue generation, programming, fact answering, etc."
+		],
+		"ChatGLM": [
+			"https://chatglm.cn/blog?continueFlag=af5320e8f778b996afe7697670864685",
+			"This is a multibillion Chinese-English language model with basic question-and-answer and conversational capabilities, optimized for Chinese language."
+		],
+		"澜舟认知智能平台": [
+			"https://langboat.com/technology/mengzi",
+			"Based on Mencius pre-training technology, unlock full-range AIGC capabilities such as text-image generation, literary assistance creation, marketing copywriting, paper assistance writing, etc."
+		]
+	},
+	"LLMs": {
+		"LaMDA": [
+			"https://blog.google/technology/ai/lamda/",
+			"Language Model for Dialogue Applications is a family of conversational large language models developed by Google. LaMDA uses a decoder-only transformer language model."
+		],
+		"LLaMA": [
+			"https://github.com/facebookresearch/llama",
+			"by Meta AI, A foundational, 65-billion-parameter large language model. LLaMA (Large Language Model Meta AI) is a state-of-the-art foundational large language model designed to help researchers advance their work in this subfield of AI."
+		],
+		"Gopher": [
+			"https://arxiv.org/abs/2112.11446",
+			"by DeepMind, a 280 billion parameter transformer language model called Gopher, is an autoregressive transformer-based dense LLM."
+		],
+		"GLM": [
+			"https://github.com/THUDM/GLM-130B",
+			"GLM is a General Language Model developed by Tsinghua University. GLM-130B is an open bilingual (English&Chinese) version of GLM with 130 billion parameters, designed for users with a single A100 or V100 server23."
+		],
+		"GPT-NeoXT-Chat-Base-20B": [
+			"https://huggingface.co/togethercomputer/GPT-NeoXT-Chat-Base-20B",
+			"An open-source language model that can chat and generate images. Created by EleutherAI."
+		],
+		"BLOOM": [
+			"https://huggingface.co/bigscience/bloom",
+			"by BigScience, BLOOM is an autoregressive Large Language Model (LLM), trained to continue text from a prompt on vast amounts of text data using industrial-scale computational resources. As such, it is able to output coherent text in 46 languages and 13 programming languages that is hardly distinguishable from text written by humans. BLOOM can also be instructed to perform text tasks it hasn't been explicitly trained for, by casting them as text generation tasks."
+		],
+		"OPT": [
+			"Not provided",
+			"by Meta, The OPT model was proposed in Open Pre-trained Transformer Language Models by Meta AI. OPT is a series of open-sourced large causal language models which perform similar in performance to GPT3."
+		]
+	}
+}

@@ -1,0 +1,100 @@
+desc,links
+"🔮 ChatGPT Desktop Application (Mac, Windows and Linux)",https://github.com/lencx/ChatGPT
+Reverse engineered ChatGPT API,https://github.com/acheong08/ChatGPT
+This repo includes ChatGPT prompt curation to use ChatGPT better.,https://github.com/f/awesome-chatgpt-prompts
+用 Express 和 Vue3 搭建的 ChatGPT 演示网页,https://github.com/Chanzhaoyu/chatgpt-web
+ChatGPT 中文调教指南。各种场景使用指南。学习怎么让它听你的话。,https://github.com/PlexPt/awesome-chatgpt-prompts-zh
+One-Click to deploy well-designed ChatGPT web UI on Vercel. 一键拥有你自己的 ChatGPT 网页服务。,https://github.com/Yidadaa/ChatGPT-Next-Web
+科研工作专用ChatGPT/GLM拓展，特别优化学术Paper润色体验，模块化设计支持自定义快捷按钮&函数插件，支持代码块表格显示，Tex公式双显示，新增Python和C++项目剖析&自译解功能，PDF/LaTex论文翻译&总结功能，…,https://github.com/binary-husky/chatgpt_academic
+Use ChatGPT On Wechat via wechaty,https://github.com/fuergaosi233/wechat-chatgpt
+全网最易部署，响应速度最快的ChatGPT环境。PHP版调用OpenAI接口进行问答，采用Stream流模式通信，一边生成一边输出。前端采用EventSource，支持Markdown格式解析，支持公式显示，代码有着色处理。页面UI简…,https://github.com/dirk1983/chatgpt
+"Optimized UI for ChatGPT, DALL-E and Stable Diffusion.",https://github.com/ddiu8081/chatgpt-demo
+An open source ChatGPT UI.,https://github.com/mckaywrigley/chatbot-ui
+Node.js client for the official ChatGPT API. 🔥,https://github.com/transitive-bullshit/chatgpt-api
+Elegant and Powerfull. Powered by OpenAI and Vercel.,https://github.com/ourongxing/chatgpt-vercel
+The ChatGPT Retrieval Plugin lets you easily search and find personal or work documents by asking questions in everyd…,https://github.com/openai/chatgpt-retrieval-plugin
+ChatGPT for wechat https://github.com/AutumnWhj/ChatGPT-wechat-bot,https://github.com/AutumnWhj/ChatGPT-wechat-bot
+"Wechat robot based on ChatGPT, which using OpenAI api and itchat library. 使用ChatGPT搭建微信聊天机器人，基于GPT3.5/4.0 API和itchat实…",https://github.com/zhayujie/chatgpt-on-wechat
+A browser extension that enhance search engines with ChatGPT,https://github.com/wong2/chatgpt-google-extension
+This project is a plugin that supports ChatGPT running on JetBrains series IDE.,https://github.com/dromara/ChatGPT
+"A ChatGPT C# client for MacOS, Windows, Linux, Android, iOS and Browser. Powered by Avalonia UI framework.",https://github.com/wieslawsoltes/ChatGPT
+使用cloudflare 搭建免费的 OpenAI api代理 ，解决网络无法访问问题。支持 Stream 流式输出,https://github.com/x-dr/chatgptProxyAPI
+An unofficial Visual Studio Code - OpenAI ChatGPT integration,https://github.com/gencay/vscode-chatgpt
+GUI for ChatGPT API and any LLM,https://github.com/GaiZhenbiao/ChuanhuChatGPT
+"Curated list of awesome tools, demos, docs for ChatGPT and GPT-3",https://github.com/humanloop/awesome-chatgpt
+WebChatGPT: A browser extension that augments your ChatGPT prompts with web results.,https://github.com/qunash/chatgpt-advanced
+"Integrating ChatGPT into your browser deeply, everything you need is here",https://github.com/josStorer/chatGPTBox
+基于ChatGPT3.5 API实现的私有化web程序,https://github.com/869413421/chatgpt-web
+"Run your own GPTChat Telegram bot, with a single command!",https://github.com/m1guelpf/chatgpt-telegram
+"ChatGPT for Mac, living in your menubar.",https://github.com/vincelwt/chatgpt-mac
+ChatGPT + DALL-E + WhatsApp = AI Assistant 🚀 🤖,https://github.com/karfly/chatgpt_telegram_bot
+ChatGPT网址导航，分享免费好用AI网站！,https://github.com/LangLangShanDeNanKe/chatgpt
+ChatGPT Java SDK。支持 GPT3.5、 GPT4 API。开箱即用。,https://github.com/PlexPt/chatgpt-java
+🚀 一键部署！真正的 AI 聊天机器人！支持ChatGPT、文心一言、Bing、Bard、ChatGLM、POE，多账号，人设调教，虚拟女仆、图片渲染、语音发送 | 支持 QQ、Telegram、Discord 等平台,https://github.com/lss233/chatgpt-mirai-qq-bot
+API for interacting with ChatGPT and GPT4 using Python and from Shell.,https://github.com/mmabrouk/chatgpt-wrapper
+A VSCode extension that allows you to use ChatGPT,https://github.com/mpociot/chatgpt-vscode
+"A client implementation for ChatGPT and Bing AI. Available as a Node.js module, REST API server, and CLI app.",https://github.com/waylaidwanderer/node-chatgpt-api
+Deploy your own Telegram ChatGPT bot on Cloudflare Workers with ease.,https://github.com/TBXark/ChatGPT-Telegram-Workers
+A simple and open-source proxy API that allows you to access OpenAI's ChatGPT API for free!,https://github.com/ayaka14732/ChatGPTAPIFree
+ChatGPT integration with Unity Editor,https://github.com/keijiro/AICommand
+📲 ChatGPT Android demonstrates OpenAI's ChatGPT on Android with Stream Chat SDK for Compose.,https://github.com/skydoves/chatgpt-android
+Your Ultimate Copilot on the Desktop. Chatbox is a desktop app for GPT-4 / GPT-3.5 (OpenAI API) that supports Windows…,https://github.com/Bin-Huang/chatbox
+OpenAI管理界面，聚合了OpenAI的所有接口进行界面操作(所有模型、图片、音频、微调、文件)等，支持Markdown格式(公式、图表，表格)等，GPT4接口官方只是在申请阶段，后期会一点一点的将OpenAI接口进行接入大家支持一…,https://github.com/202252197/ChatGPT_JCM
+"ChatGPT DAN, Jailbreaks prompt",https://github.com/0xk1h0/ChatGPT_DAN
+ChatGPT 中文指南，ChatGPT 中文调教指南，指令指南，精选资源清单，更好的使用 chatGPT 让你的生产力 up up up!,https://github.com/yzfly/awesome-chatgpt-zh
+ChatGPT Java SDK支持流式输出。支持OpenAI官方所有接口。ChatGPT的Java客户端。OpenAI GPT-3.5-Turb GPT-4 Api Client for Java,https://github.com/Grt1228/chatgpt-java
+Integrate ChatGPT into your own discord bot,https://github.com/Zero6992/chatGPT-discord-bot
+This is a repository that allows you to integrate ChatGPT into Line.,https://github.com/TheExplainthis/ChatGPT-Line-Bot
+Build your own ChatGPT website.,https://github.com/excing/chatgpt
+A ChatGPT Chrome extension. Integrates ChatGPT into every text box on the internet.,https://github.com/gragland/chatgpt-chrome-extension
+Maximize your efficiency and productivity. 让生产力加倍的 ChatGPT 快捷指令，按照领域和功能分区，可对提示词进行标签筛选、关键词搜索和一键复制。,https://github.com/rockbenben/ChatGPT-Shortcut
+Talk to ChatGPT AI using your voice and listen to its answers through a voice,https://github.com/C-Nedelcu/talk-to-chatgpt
+A mirror of ChatGPT based on the gpt-3.5-turbo model.,https://github.com/yuezk/chatgpt-mirror
+OpenAI API Free Reverse Proxy,https://github.com/PawanOsman/ChatGPT
+"Curated list of apps and tools that not only use the new ChatGPT API, but also allow users to configure their own API…",https://github.com/reorx/awesome-chatgpt-api
+基于 laf 开发的 chatGPT 免费 免登录 免翻墙 点击开聊,https://github.com/zuoFeng59556/chatGPT
+"🤖 A Telegram bot that integrates with OpenAI's official ChatGPT APIs to provide answers, written in Python",https://github.com/n3d1117/chatgpt-telegram-bot
+⚡ Everything about ChatGPT,https://github.com/OpenMindClub/awesome-chatgpt
+Play ChatGPT with xiaomi AI speaker,https://github.com/yihong0618/xiaogpt
+ChatGPT资料汇总学习，持续更新......,https://github.com/dalinvip/Awesome-ChatGPT
+This is a repository that allows you to integrate ChatGPT into Discord.,https://github.com/TheExplainthis/ChatGPT-Discord-Bot
+API server for ChatGPT,https://github.com/acheong08/ChatGPT-API-server
+ChatGPT Console client in Golang,https://github.com/kkdai/chatgpt
+Create your own ChatGPT App in seconds.,https://github.com/futantan/OpenGpt
+ChatGPT,https://github.com/EthanForAi/ChatGPT
+ChatGPT clone using openAI API,https://github.com/nisabmohd/ChatGPT
+This is a very early attempt at having chatGPT work within a telegram bot,https://github.com/altryne/chatGPT-telegram-bot
+ChatGPT AI Supported - ChatGPT clone is a simple web application powered by the OpenAI library and built with PHP. It…,https://github.com/orhanerday/ChatGPT
+"🆓免费的 ChatGPT 镜像网站列表，持续更新。List of free ChatGPT mirror sites, continuously updated.",https://github.com/LiLittleCat/awesome-free-chatgpt
+"One-click deployment of the ChatGPT private proxy, power by Next.js",https://github.com/imyuanx/chatgpt-proxy
+"This is the code for the ""ChatGPT Trading Bot"" Video by Siraj Raval on Youtube",https://github.com/llSourcell/ChatGPT_Trading_Bot
+Let ChatGPT truly learn how to go online and call APIs! 'EX-ChatGPT' can rival and even surpass NewBing,https://github.com/circlestarzero/EX-chatGPT
+chatgpt html online,https://github.com/sbaliyun/chatgpt-html
+Pure Javascript ChatGPT demo based on OpenAI API,https://github.com/xqdoo00o/chatgpt-web
+给飞书准备的 ChatGPT 机器人,https://github.com/bestony/ChatGPT-Feishu
+A list of totally open alternatives to ChatGPT,https://github.com/nichtdax/awesome-totally-open-chatgpt
+"共享 ChatGPT 账号给多用户同时使用！A web application that allows multiple users to share one ChatGPT account at the same time, dev…",https://github.com/moeakwak/chatgpt-web-share
+"A ChatGPT web client that supports multiple users, multiple languages, and multiple database connections for persiste…",https://github.com/WongSaang/chatgpt-ui
+"This is an application project of 'chatgpt',only applicable to desktop environment.",https://github.com/AIGCT/EASYChatGPT
+搜集国内可用的 ChatGPT 在线体验免费网站列表。定时任务每日更新,https://github.com/lzwme/chatgpt-sites
+Build Yo'own ChatGPT with OpenAI API & Gradio,https://github.com/amrrs/chatgpt-clone
+Flutter ChatGPT,https://github.com/redevRx/chat_gpt_sdk
+ChatGPT-powered shader generator for Unity,https://github.com/keijiro/AIShader
+ChatGPT para Whatsapp,https://github.com/victorharry/zap-gpt
+chatGPT私有化部署,https://github.com/mic1on/chatGPT-web
+Fuel your productivity with ChatGPT-Desktop - Blazingly fast and supercharged!,https://github.com/Synaptrix/ChatGPT-Desktop
+🐥 A code review bot powered by ChatGPT,https://github.com/anc95/ChatGPT-CodeReview
+"🧠 A curated list of awesome ChatGPT resources, including libraries, SDKs, APIs, and more. 🌟 Please consider supportin…",https://github.com/eon01/awesome-chatgpt
+ChatGPT web interface using the OpenAI API,https://github.com/Niek/chatgpt-web
+让我们在使用ChatGPT过程中更高效、更顺畅，完美解决ChatGPT网络错误，不再频繁地刷新网页，足足省去10个多余的步骤。还可以取消后台监管审计。解决了这几类报错: (1) NetworkError when attempting…,https://github.com/xcanwin/KeepChatGPT
+"A Chrome extension for downloading your ChatGPT history to PNG, PDF or a sharable link",https://github.com/liady/ChatGPT-pdf
+An elegant interactive CLI for ChatGPT,https://github.com/j178/chatgpt
+"Shortcuts for Siri using ChatGPT API gpt-3.5-turbo & gpt-4 model, supports continuous conversations, configure the AP…",https://github.com/Yue-Yang/ChatGPT-Siri
+Interface to ChatGPT from R,https://github.com/jcrodriguez1989/chatgpt
+Cloudflare Bypass for OpenAI based on `puid`,https://github.com/acheong08/ChatGPT-Proxy-V4
+Free ChatGPT Site List 这儿为你准备了众多免费好用的ChatGPT镜像站点，当前100+站点,https://github.com/xx025/carrot
+微信风格的 ChatGPT，使用 Next.js 构建，私有化部署的最佳选择！,https://github.com/xcatliu/chatgpt-next
+Create a private ChatGPT website with one-click for free using Vercel -- 通过 Vercel 一键免费创建私有的 ChatGPT 站点,https://github.com/GPTGenius/chatgpt-vercel
+由ChatGPT自己编写的ChatGPT工具箱。 当前功能: 1. 绕过高负载禁止登录 2.关闭数据监管 3.链路维持(减少网络错误) 4.API混合接入 5.会话导入导出 6.聊天记录下载,https://github.com/bigemon/ChatGPT-ToolBox
+为个人微信接入ChatGPT,https://github.com/djun/wechatbot
+this app is a ChatGPT Clone with DALL.E using OpenAIs gpt-3.5-turbo and image generation Model,https://github.com/EyuCoder/chatgpt-clone
